@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GameCatalogue"
         tools:ignore="AllowBackup">
-        <activity android:name=".detail.DetailActivity" />
-        <activity android:name=".favorites.FavoritesActivity" />
-        <activity android:name=".home.HomeActivity">
+        <activity android:name=".ui.detail.DetailActivity" />
+        <activity android:name="com.dimdimbjg.favorite.FavoritesActivity" />
+        <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

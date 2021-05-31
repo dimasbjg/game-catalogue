@@ -1,9 +1,9 @@
 package com.dimdimbjg.gamecatalogue
 
 import android.app.Application
-import com.dimdimbjg.gamecatalogue.core.di.networkModule
-import com.dimdimbjg.gamecatalogue.core.di.repositoryModule
-import com.dimdimbjg.gamecatalogue.core.di.storageModule
+import com.dimdimbjg.core.di.networkModule
+import com.dimdimbjg.core.di.repositoryModule
+import com.dimdimbjg.core.di.storageModule
 import com.dimdimbjg.gamecatalogue.di.useCaseModule
 import com.dimdimbjg.gamecatalogue.di.viewModelModul
 import org.koin.android.ext.koin.androidContext
