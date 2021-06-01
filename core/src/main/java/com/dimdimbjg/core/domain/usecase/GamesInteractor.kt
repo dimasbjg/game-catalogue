@@ -1,5 +1,7 @@
 package com.dimdimbjg.core.domain.usecase
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import com.dimdimbjg.core.data.source.Resource
 import com.dimdimbjg.core.domain.model.Detail
 import com.dimdimbjg.core.domain.model.Games
@@ -13,6 +15,10 @@ class GamesInteractor(private val gamesRepository: IGamesRepository): GamesUseCa
 
     override fun getGamesDetail(id: Int): Flow<Resource<Detail>> =
         gamesRepository.getGamesDetail(id)
+
+    override fun checkIsFavorites(id: Int) =
+        gamesRepository.checkIsFavorite(id).asLiveData()
+
 
     override suspend fun addGameFavorites(id: Int) {
         gamesRepository.insertFavoriteGame(id)

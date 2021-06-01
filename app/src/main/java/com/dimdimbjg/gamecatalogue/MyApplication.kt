@@ -3,9 +3,9 @@ package com.dimdimbjg.gamecatalogue
 import android.app.Application
 import com.dimdimbjg.core.di.networkModule
 import com.dimdimbjg.core.di.repositoryModule
-import com.dimdimbjg.core.di.storageModule
+import com.dimdimbjg.core.di.databaseModule
 import com.dimdimbjg.gamecatalogue.di.useCaseModule
-import com.dimdimbjg.gamecatalogue.di.viewModelModul
+import com.dimdimbjg.gamecatalogue.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -19,11 +19,11 @@ class MyApplication: Application() {
             androidContext(this@MyApplication)
             modules(
                 listOf(
-                    storageModule,
+                    databaseModule,
                     networkModule,
                     repositoryModule,
                     useCaseModule,
-                    viewModelModul
+                    viewModelModule
                 )
             )
         }

@@ -13,6 +13,8 @@ interface IGamesRepository {
 
     fun getGamesDetail(id: Int): Flow<Resource<Detail>>
 
+    fun checkIsFavorite(id: Int): Flow<Boolean>
+
     suspend fun insertFavoriteGame(id: Int)
 
     suspend fun removeFavoriteGame(id: Int)

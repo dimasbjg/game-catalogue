@@ -11,7 +11,7 @@ val useCaseModule = module {
     factory<GamesUseCase> { GamesInteractor(get()) }
 }
 
-val viewModelModul = module {
+val viewModelModule = module {
     viewModel { HomeViewModel(get()) }
     viewModel { DetailViewModel(get()) }
 

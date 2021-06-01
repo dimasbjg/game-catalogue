@@ -14,8 +14,8 @@ interface GamesDao {
     @Query("SELECT * FROM games")
     fun getGames(): Flow<List<GamesEntity>>
 
-    @Query("SELECT * FROM details")
-    fun getGamesDetail(): Flow<DetailEntity>
+    @Query("SELECT * FROM details WHERE games_id = :id")
+    fun getGamesDetail(id: Int): Flow<DetailEntity>
 
     @Query("SELECT * FROM games WHERE isFavorites = 1")
     fun getFavoritesGames(): Flow<List<GamesEntity>>

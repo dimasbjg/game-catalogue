@@ -53,4 +53,7 @@ ext {
     //espresso
     espresso_version = '3.3.0'
 
+    //coroutines
+    coroutines_version = "1.4.3"
+
 }

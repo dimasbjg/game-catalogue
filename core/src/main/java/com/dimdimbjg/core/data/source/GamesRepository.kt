@@ -11,6 +11,7 @@ import com.dimdimbjg.core.domain.repository.IGamesRepository
 import com.dimdimbjg.core.utils.Mapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 
 class GamesRepository constructor(
     private val remoteDataSource: RemoteDataSource,
@@ -18,7 +19,7 @@ class GamesRepository constructor(
 ) : IGamesRepository {
     override fun getAllGames(): Flow<Resource<List<Games>>> =
         object :
-            com.dimdimbjg.core.data.source.NetworkBoundResource<List<Games>, ListGamesResponse>() {
+            NetworkBoundResource<List<Games>, ListGamesResponse>() {
             override fun loadFromDB(): Flow<List<Games>> {
                 return localDataSource.getGames().map {
                     Mapper.mapGamesEntitiesToDomain(it)
@@ -44,16 +45,16 @@ class GamesRepository constructor(
 
 
     override fun getGamesDetail(id: Int): Flow<Resource<Detail>> =
-        object : com.dimdimbjg.core.data.source.NetworkBoundResource<Detail, DetailGameResponse>() {
-            override fun loadFromDB(): Flow<Detail> {
-                return localDataSource.getDetail().map {
+        object : NetworkBoundResource<Detail, DetailGameResponse>() {
+            override fun loadFromDB(): Flow<Detail> =
+                localDataSource.getDetail(id).mapNotNull {
                     if (it == null) {
                         Detail.createEmptyObject()
                     } else {
                         Mapper.mapDetailEntitiesToDomain(it)
                     }
                 }
-            }
+
 
             override fun shouldFetch(data: Detail?): Boolean = data?.id == -1
 
@@ -67,6 +68,10 @@ class GamesRepository constructor(
             }
 
         }.asFlow()
+
+    override fun checkIsFavorite(id: Int): Flow<Boolean> {
+        return localDataSource.checkFavorites(id)
+    }
 
     override suspend fun insertFavoriteGame(id: Int) {
         localDataSource.addFavorites(id)

@@ -11,4 +11,15 @@
         </dist:delivery>
         <dist:fusing dist:include="true" />
     </dist:module>
+    <application>
+        <activity android:name=".FavoritesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="favorite"
+                    android:scheme="gamecatalogue" />
+            </intent-filter>
+        </activity>
+    </application>
 </manifest>

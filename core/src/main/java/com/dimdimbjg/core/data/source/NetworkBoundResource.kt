@@ -40,5 +40,4 @@ abstract class NetworkBoundResource<ResultType, RequestType>() {
     protected abstract suspend fun saveCallResult(data: RequestType)
 
     fun asFlow(): Flow<Resource<ResultType>> = result
-
 }

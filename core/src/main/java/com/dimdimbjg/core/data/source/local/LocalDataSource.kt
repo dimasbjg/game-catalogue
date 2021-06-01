@@ -20,8 +20,8 @@ class LocalDataSource constructor(private val gamesDao: GamesDao) {
         return gamesDao.getGames()
     }
 
-    fun getDetail(): Flow<DetailEntity> {
-        return gamesDao.getGamesDetail()
+    fun getDetail(id: Int): Flow<DetailEntity> {
+        return gamesDao.getGamesDetail(id)
     }
 
     fun getFavorites(): Flow<List<GamesEntity>> {
