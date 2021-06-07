@@ -3,4 +3,7 @@
     <string name="game_title">Game Title</string>
     <string name="rating">Rating: 3.9 (2000)</string>
     <string name="description">Description :</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="error_message">Something went wrong</string>
+    <string name="date">2020-20-20</string>
 </resources>

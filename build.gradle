@@ -34,7 +34,7 @@ ext {
 
     // Retrofit
     retrofit_version = "2.9.0"
-    logging_interceptor_version = "4.9.0"
+    logging_interceptor_version = "4.9.1"
 
     // Coroutine
     kotlin_coroutines_version = "1.4.3"
@@ -52,5 +52,8 @@ ext {
 
     //espresso
     espresso_version = '3.3.0'
+
+    //coroutines
+    coroutines_version = "1.4.3"
 
 }
