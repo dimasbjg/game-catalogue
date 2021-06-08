@@ -20,10 +20,10 @@ interface GamesDao {
     @Query("SELECT * FROM games WHERE isFavorites = 1")
     fun getFavoritesGames(): Flow<List<GamesEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertGames(games: List<GamesEntity>)
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertDetail(gamesDetail: DetailEntity)
 
     @Query("UPDATE games SET isFavorites = 1 WHERE id = :id")

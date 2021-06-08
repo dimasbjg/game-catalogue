@@ -32,7 +32,5 @@ class FavoritesActivity : AppCompatActivity() {
         viewModel.listFavorites.observe(this, { result ->
             adapter.setGames(result)
         })
-
-
     }
 }
