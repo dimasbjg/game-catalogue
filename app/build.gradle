@@ -35,14 +35,10 @@ android {
     buildFeatures{
         viewBinding true
     }
-    lintOptions {
-        abortOnError false
-    }
-
-
     dynamicFeatures = [':favorite']
 }
 
 dependencies {
     implementation project(":core")
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
