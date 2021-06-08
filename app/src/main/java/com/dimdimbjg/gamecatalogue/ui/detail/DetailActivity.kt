@@ -14,10 +14,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object {
-        const val GAME_ID = "game_id"
-    }
-
     private val viewModel: DetailViewModel by viewModel()
 
     private lateinit var binding: ActivityDetailBinding
@@ -56,7 +52,7 @@ class DetailActivity : AppCompatActivity() {
 
         viewModel.checkIsFavorite(gameId).observe(this, {
             isFavorite = it
-            val icon = if(it) R.drawable.ic_favorite else R.drawable.ic_favorite_border
+            val icon = if (it) R.drawable.ic_favorite else R.drawable.ic_favorite_border
             binding.fab.setImageResource(icon)
         })
 
@@ -77,7 +73,9 @@ class DetailActivity : AppCompatActivity() {
         with(binding) {
             gameTitle.text = data.name
             description.text = data.descriptionRaw
-            (data.rating.toString() + "( ${data.ratingsCount.toString()} )").also { rating.text = it }
+            (data.rating.toString() + "( ${data.ratingsCount.toString()} )").also {
+                rating.text = it
+            }
             "Release Data: ${data.released}".also { tvRelease.text = it }
 
             Glide.with(this@DetailActivity)
@@ -128,6 +126,10 @@ class DetailActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
+    }
+
+    companion object {
+        const val GAME_ID = "game_id"
     }
 
 }
